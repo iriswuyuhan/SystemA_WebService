@@ -29,4 +29,5 @@ urlpatterns = [
     url(r'^course/add/$',admin_service.addCourse),
     url(r'^course/remove/$',admin_service.removeCourse),
     url(r'^course/getAll/$',get_service.getAll), #管理员使用
+    url(r'^course/getCross/$', get_service.getCrossDep),
 ]
