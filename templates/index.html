@@ -1,0 +1,200 @@
+﻿<!DOCTYPE>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>法学院课程系统</title>
+	<!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+	<link rel="stylesheet" href="../static/materialize/css/materialize.min.css" media="screen,projection" />
+    <!-- Bootstrap Styles-->
+    <link href="../static/css/bootstrap.css" rel="stylesheet" />
+    <!-- FontAwesome Styles-->
+    <link href="../static/css/font-awesome.css" rel="stylesheet" />
+    <!-- Custom Styles-->
+    <link href="../static/css/custom-styles.css" rel="stylesheet" />
+    <!-- Google Fonts-->
+    <!--<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />-->
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle waves-effect waves-dark" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand waves-effect waves-dark" href="index.html"><i class="large material-icons"></i> <strong>法学院</strong></a>
+				
+            </div>
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li id="stuLogin">
+                    <a class="waves-effect waves-dark" data-target="#loginWindow" data-toggle="modal">
+                        <i class="fa fa-user fa-fw"></i><b>学生登录入口</b>
+                    </a>
+                </li>
+                <li id="manLogin">
+                    <a class="waves-effect waves-dark" data-target="#managerLoginWindow" data-toggle="modal">
+                        <i class="fa fa-user fa-fw"></i><b>管理员登录入口</b>
+                    </a>
+                </li>
+				<li id="welcomeUser" style="display: none">
+                    <a class="dropdown-button waves-effect waves-dark" data-activates="dropdown1">
+                        <i class="fa fa-user fa-fw"></i><b id="user"></b><i class="material-icons right"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="modal fade" id="loginWindow" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span>登录</span>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <input id="username" class="input" type="text" placeholder="用户名"/>
+                            <br>
+                            <input id="password" class="input" type="password" placeholder="密码"/>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="login" class="btn login" data-dismiss="modal">登录</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        //管理员登录
+        <div class="modal fade" id="managerLoginWindow" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span>管理员登录</span>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <input id="managerName" class="input" type="text" placeholder="用户名"/>
+                            <br>
+                            <input id="managePass" class="input" type="password" placeholder="密码"/>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="managerLogin" class="btn login" data-dismiss="modal">登录</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<!-- Dropdown Structure -->
+			<ul id="dropdown1" class="dropdown-content">
+				<li><a id="person_info_btn"><i class="fa fa-user fa-fw"></i> 个人信息</a>
+				</li>
+			</ul>
+	   <!--/. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li>
+                        <a class="active-menu waves-effect waves-dark">
+                            <i class="fa fa-dashboard"></i> 我的课程</a>
+                    </li>
+                    <li>
+                        <a href="../form" class="waves-effect waves-dark">
+                            <i class="fa fa-desktop"></i> 全部课程</a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+      
+		<div id="page-wrapper">
+            <div class="header">
+                <h1 class="page-header">个人中心</h1>
+                <ol class="breadcrumb">
+                  <li><a href="#">首页</a></li>
+                  <li class="active" id="view">我的课程</li>
+                </ol>
+            </div>
+
+            <div class="container">
+                <h4>法学院</h4>
+                <table id="course_table" class="table" style="width: 1000px">
+                    <tr>
+                        <th>课程编号</th>
+                        <th>课程名字</th>
+                        <th>课程学分</th>
+                        <th>授课教师</th>
+                        <th>上课地点</th>
+                        <th>课程操作</th>
+                    </tr>
+                </table>
+
+                <h4>计算机科学与技术学院</h4>
+                <table id="b_course_table" class="table" style="width: 1000px">
+                    <tr>
+                        <th>课程编号</th>
+                        <th>课程名字</th>
+                        <th>课程学分</th>
+                        <th>授课教师</th>
+                        <th>上课地点</th>
+                        <th>课程操作</th>
+                    </tr>
+                </table>
+
+                <h4>商学院</h4>
+                <table id="c_course_table" class="table" style="width: 1000px">
+                    <tr>
+                        <th>课程编号</th>
+                        <th>课程名字</th>
+                        <th>课程学分</th>
+                        <th>授课教师</th>
+                        <th>上课地点</th>
+                        <th>课程操作</th>
+                    </tr>
+                </table>
+
+                <div id="person_info" class="row" style="display: none">
+                    <div class="person-panel">
+                        <div class="col-lg-6">
+                            <h4>学号 : </h4>
+                            <h4>姓名 : </h4>
+                            <h4>性别 : </h4>
+                            <h4>主修专业 : </h4>
+                        </div>
+                        <div class="col-lg-6" style="color: grey">
+                            <h4 id="s_id"></h4>
+                            <h4 id="s_name"></h4>
+                            <h4 id="gender"></h4>
+                            <h4 id="major"></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="../static/js/jquery-1.10.2.js"></script>
+	
+	<!-- Bootstrap Js -->
+    <script src="../static/js/bootstrap.min.js"></script>
+	
+	<script src="../static/materialize/js/materialize.min.js"></script>
+	
+    <!-- Metis Menu Js -->
+    <script src="../static/js/jquery.metisMenu.js"></script>
+    <script src="../static/systemJS/util.js"></script>
+    <script src="../static/systemJS/login.js"></script>
+    <script src="../static/systemJS/index.js"></script>
+
+</body>
+
+</html>

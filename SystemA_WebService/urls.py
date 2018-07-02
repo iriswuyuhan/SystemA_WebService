@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include,url
+from django.views.generic import TemplateView
 from myladon import urls as ladon_urls
 from .service import login_service
 from .service import admin_service
 from .service import get_service
+from .service import student_service
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,5 +31,10 @@ urlpatterns = [
     url(r'^course/add/$',admin_service.addCourse),
     url(r'^course/remove/$',admin_service.removeCourse),
     url(r'^course/getAll/$',get_service.getAll), #管理员使用
+    url(r'^course/getStuCourse/$',get_service.getStudentCourse),
     url(r'^course/getCross/$', get_service.getCrossDep),
+    url(r'^student/getStuInfo/$',student_service.getStuInfo),
+    url(r'^index/$',TemplateView.as_view(template_name="index.html"),name="index"),
+    url(r'^form/$',TemplateView.as_view(template_name="form.html"),name="form"),
+    url(r'^manager/$',TemplateView.as_view(template_name="manager.html"),name="manager"),
 ]

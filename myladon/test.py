@@ -10,7 +10,7 @@ from suds.client import Client
 # username = 'api_user'
 # password = 'api_pwd'
 
-url="http://localhost:8000/api/Course_Service/soap11/description" #接口的URL
+url="http://localhost:8000/soap/user?wsdl" #接口的URL
 headers = {'Content-Type': 'application/soap+xml; charset="UTF-8"'}
 
 client = Client(url,headers=headers,faults=False,timeout=15)

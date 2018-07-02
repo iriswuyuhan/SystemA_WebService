@@ -1,1 +1,1 @@
-host="http://172.19.184.117:8080/"
+host="http://localhost:8000/soap/user?wsdl"

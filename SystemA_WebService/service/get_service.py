@@ -9,6 +9,8 @@ import urllib.request
 
 from ..constants import host
 
+from suds.client import Client
+
 #给管理员使用的
 def getAll(request):
     course = Course()
@@ -42,7 +44,7 @@ def getAll(request):
     doc.appendChild(root)
     return HttpResponse(doc.toxml(),"text/xml")
 
-def getSelect(request):
+def getStudentCourse(request):
     sid=str(request.GET.get("sid"))
     course = Course()
     courseInfo = course.getCourse()
@@ -83,17 +85,17 @@ def getSelect(request):
         select.appendChild(doc.createTextNode(str(item[6])))
         c.appendChild(select)
         root.appendChild(c)
-
-    #TODO 调用集成服务器服务
-    # text={'sid':sid}
-    # text=urllib.parse.urlencode(text)
-    # url=host
-    # req=urllib.request.Request(url='%s%s%s' % (url,'?',text))
-    # res=urllib.request.urlopen(req)
-    # content=res.read()
-    #
-    # bodydata = content.body
-    # doc = dm.parseString(bodydata.decode("utf-8"))
+    bodydata=None
+    headers = {'Content-Type': 'application/soap+xml; charset="UTF-8"'}
+    client = Client(host, headers=headers, faults=False, timeout=15)
+    try:
+        result = client.service.getUserShareCourses(sid)
+        # print result
+        if result[0] == 200:
+            bodydata=result[1]
+    except Exception as e:
+        print(e)
+    doc = dm.parseString(bodydata.decode("utf-8"))
     doc.appendChild(root)
     return HttpResponse(doc.toxml(),"text/xml")
 

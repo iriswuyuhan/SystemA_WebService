@@ -12,13 +12,6 @@ class Student_Service(object):
         return result
         pass
 
-    @ladonize(str, rtype=str)
-    def getStuInfo(self, account):
-        student = Student()
-        stuInfo = student.getStu(account)
-        result = self._wrapStu(stuInfo)
-        return result
-
     @ladonize(str,rtype=str)
     def addStuInfo(self,info):
         student = Student()

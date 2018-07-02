@@ -1,0 +1,133 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>学院A课程系统</title>
+
+    <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+    <link rel="stylesheet" href="../static/materialize/css/materialize.min.css" media="screen,projection" />
+    <!-- Bootstrap Styles-->
+    <link href="../static/css/bootstrap.css" rel="stylesheet" />
+    <!-- FontAwesome Styles-->
+    <link href="../static/css/font-awesome.css" rel="stylesheet" />
+    <!-- Custom Styles-->
+    <link href="../static/css/custom-styles.css" rel="stylesheet" />
+    <link href="../static/css/manager.css" rel="stylesheet" />
+</head>
+
+<body>
+<div id="wrapper">
+    <nav class="navbar navbar-default top-navbar" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle waves-effect waves-dark" data-toggle="collapse" data-target=".sidebar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand waves-effect waves-dark" href="index.html"><i class="large material-icons"></i> <strong>System A</strong></a>
+
+        </div>
+
+        <ul class="nav navbar-top-links navbar-right">
+            <li id="welcomeUser">
+                <a class="dropdown-button waves-effect waves-dark" data-activates="dropdown1">
+                    <i class="fa fa-user fa-fw"></i><b id="user"></b><i class="material-icons right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <!-- Dropdown Structure -->
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a id="person_info_btn"><i class="fa fa-user fa-fw"></i> 个人信息</a>
+        </li>
+    </ul>
+    <!--/. NAV TOP  -->
+    <nav class="navbar-default navbar-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav" id="main-menu">
+                <li>
+                    <a class="active-menu waves-effect waves-dark" id="all">
+                        <i class="fa fa-desktop"></i> 全部课程</a>
+                </li>
+                <li>
+                    <a class="waves-effect waves-dark" id="add">
+                        <i class="fa fa-dashboard"></i> 添加课程</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <div id="page-wrapper">
+        <div class="header">
+            <h1 class="page-header">管理中心</h1>
+            <ol class="breadcrumb">
+                <li><a href="#">首页</a></li>
+                <li class="active" id="view">全部课程</li>
+            </ol>
+        </div>
+
+
+        <div class="container">
+            <table id="course_table" class="table" style="width: 1000px">
+                <tr>
+                    <th>课程编号</th>
+                    <th>课程名字</th>
+                    <th>课程学分</th>
+                    <th>授课教师</th>
+                    <th>上课地点</th>
+                    <th>是否共享</th>
+                    <th>课程操作</th>
+                </tr>
+            </table>
+
+            <div id="course_info" class="row" style="display: none">
+                <div class="person-panel">
+                    <div class="col-lg-6">
+                        <h4>课程名字 : </h4>
+                        <h4>学分 : </h4>
+                        <h4>授课教师 : </h4>
+                        <h4>地点 : </h4>
+                        <h4>是否共享 : </h4>
+                    </div>
+                    <div class="col-lg-6" style="color: grey">
+                        <input id="name"/>
+                        <input id="credit"/>
+                        <input id="teacher"/>
+                        <input id="location"/>
+                        <input type="radio" name="share" value="Y" checked="checked" style="position: relative;left: 0;opacity: 2">是</input>
+                        <input type="radio" name="share" value="N" style="position: relative;left: 0;opacity: 2">否</input>
+                    </div>
+                    <div>
+                        <button class="btn btn-danger" id="addCourse">确认添加</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+<script src="../static/js/jquery-1.10.2.js"></script>
+
+<!-- Bootstrap Js -->
+<script src="../static/js/bootstrap.min.js"></script>
+
+<script src="../static/materialize/js/materialize.min.js"></script>
+
+<!-- Metis Menu Js -->
+<script src="../static/js/jquery.metisMenu.js"></script>
+<script src="../static/systemJS/util.js"></script>
+<script src="../static/systemJS/login.js"></script>
+<script src="../static/systemJS/manager.js"></script>
+
+</body>
+
+</html>

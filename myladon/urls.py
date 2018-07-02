@@ -28,6 +28,5 @@ urlpatterns = [
     url(r'^course/check/$',Course_Service.checkSelect),
     url(r'^course/statistic/$',Course_Service.getStatistic),
     url(r'^student/getAllStudent/$',Student_Service.getAllStudent),
-    url(r'^student/getStuInfo/$',Student_Service.getStuInfo),
     url(r'^student/addStu/$',Student_Service.addStuInfo)
 ]

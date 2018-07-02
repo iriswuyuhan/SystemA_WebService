@@ -1,6 +1,8 @@
 from ladon.ladonizer import ladonize
 import xml.dom.minidom as dm
 from ..data.Course import Course
+from SystemA_WebService.constants import host
+from suds.client import Client
 
 class Course_Service(object):
 
@@ -10,14 +12,18 @@ class Course_Service(object):
         if cid[0] == 'a':
             course = Course()
             success = course.dropCourse(sid, cid)
-        # else:
-            # TODO 调用集成服务器服务
-            # text = {'sId': sid, 'cId': cid}
-            # text = urllib.parse.urlencode(text)
-            # url = host + "api/quitCourse"
-            # req = urllib.request.Request(url='%s%s%s' % (url, '?', text))
-            # res = urllib.request.urlopen(req)
-            # success = res.read()
+        else:
+            headers = {'Content-Type': 'application/soap+xml; charset="UTF-8"'}
+            client = Client(host, headers=headers, faults=False, timeout=15)
+            try:
+                result = client.service.quitCourse(sid,cid)
+                # print result
+                if result[0] == 200:
+                    success=True
+                else:
+                    success=False
+            except Exception as e:
+                success=False
         return success
 
     @ladonize(str,str,rtype=bool)
@@ -26,14 +32,19 @@ class Course_Service(object):
         if cid[0] == 'a':
             course = Course()
             success = course.selectCourse(sid, cid)
-        # else:
-        # TODO 调用集成服务器服务
-        #     text = {'sId': sid, 'cId': cid}
-        #     text = urllib.parse.urlencode(text)
-        #     url = host + "api/chooseCourse"
-        #     req = urllib.request.Request(url='%s%s%s' % (url, '?', text))
-        #     res = urllib.request.urlopen(req)
-        #     success = res.read()
+        else:
+
+            headers = {'Content-Type': 'application/soap+xml; charset="UTF-8"'}
+            client = Client(host, headers=headers, faults=False, timeout=15)
+            try:
+                result = client.service.chooseCourse(sid, cid)
+                # print result
+                if result[0] == 200:
+                    success = True
+                else:
+                    success = False
+            except Exception as e:
+                success = False
         return success
 
     #outofbound
@@ -168,6 +179,9 @@ class Course_Service(object):
             share = doc.createElement("a:共享")
             share.appendChild(doc.createTextNode(item[5]))
             c.appendChild(share)
+            select = doc.createElement("a:选择")
+            select.appendChild(doc.createTextNode(""))
+            c.appendChild(select)
             num = doc.createElement("a:选课人数")
             num.appendChild(doc.createTextNode(str(item[6])))
             info.appendChild(c)

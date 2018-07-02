@@ -1,0 +1,119 @@
+﻿<!DOCTYPE>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>法学院课程系统</title>
+	
+	<!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
+	<link rel="stylesheet" href="../static/materialize/css/materialize.min.css" media="screen,projection" />
+    <!-- Bootstrap Styles-->
+    <link href="../static/css/bootstrap.css" rel="stylesheet" />
+    <!-- FontAwesome Styles-->
+    <link href="../static/css/font-awesome.css" rel="stylesheet" />
+    <!-- Custom Styles-->
+    <link href="../static/css/custom-styles.css" rel="stylesheet" />
+    <!-- Google Fonts-->
+    <!--<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />-->
+</head>
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default top-navbar" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand waves-effect waves-dark" href="index.html"><i class="large material-icons"></i> <strong>法学院</strong></a>
+            </div>
+
+                <ul class="nav navbar-top-links navbar-right">
+                    <li id="welcomeUser">
+                        <a class="dropdown-button waves-effect waves-dark" data-activates="dropdown1">
+                            <i class="fa fa-user fa-fw"></i><b id="user"></b>
+                        </a>
+                    </li>
+                </ul>
+        </nav>
+    </div>
+
+    <nav class="navbar-default navbar-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav" id="main-menu">
+                <li>
+                    <a href="../index" class="waves-effect waves-dark"><i class="fa fa-dashboard"></i>我的课程</a>
+                </li>
+                <li>
+                    <a class="active-menu waves-effect waves-dark"><i class="fa fa-desktop"></i>全部课程</a>
+                    <ul class="nav nav-third-level">
+                        <li>
+                            <a id="own">专业选课</a>
+                        </li>
+                        <li>
+                            <a id="other">跨院系选课</a>
+                        </li>
+                    </ul>
+                </li>　　
+            </ul>
+        </div>
+    </nav>
+
+    <div id="page-wrapper">
+      <div class="header">
+        <h1 class="page-header">全部课程</h1>
+        <ol class="breadcrumb">
+          <li><a>首页</a></li>
+          <li><a>院系A</a></li>
+          <li class="active" id="view">全部课程</li>
+        </ol>
+      </div>
+
+      <div class="container">
+          <div class="row" style="margin-left: 18px" id="share">
+              <span>选择院系 : </span>
+              <input type="radio" value="b" name="dep" checked="checked" style="position: relative;left: 0;opacity: 2;margin-left: 20px">计算机科学与技术学院</input>
+              <input type="radio" value="c" name="dep" style="position: relative;left: 0;opacity: 2;margin-left: 20px">商学院</input>
+              <button class="btn btn-danger" style="margin-left: 40px" id="check">查找</button>
+          </div>
+
+          <table class="table" style="width: 1000px">
+              <thead>
+              <tr>
+                  <th>课程编号</th>
+                  <th>课程名字</th>
+                  <th>课程学分</th>
+                  <th>授课教师</th>
+                  <th>上课地点</th>
+                  <th>课程操作</th>
+              </tr>
+              </thead>
+              <tbody id="college">
+
+              </tbody>
+          </table>
+      </div>
+    </div>
+
+
+
+     <!-- /. WRAPPER  -->
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+    <script src="../static/js/jquery-1.10.2.js"></script>
+	
+	<!-- Bootstrap Js -->
+    <script src="../static/js/bootstrap.min.js"></script>
+	
+	<script src="../static/materialize/js/materialize.min.js"></script>
+	
+    <!-- Metis Menu Js -->
+    <script src="../static/js/jquery.metisMenu.js"></script>
+    <script src="../static/systemJS/util.js"></script>
+    <script src="../static/systemJS/login.js"></script>
+    <script src="../static/systemJS/form.js"></script>
+</body>
+
+</html>
