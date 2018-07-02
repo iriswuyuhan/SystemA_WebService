@@ -31,7 +31,7 @@ $('#person_info_btn').click(function () {
 function loadInfo() {
     $.ajax({
         type: 'GET',
-        url:'/student/getStu/',
+        url:'/student/getStuInfo/',
         data:{
             account: localStorage.getItem('account')
         },
@@ -53,7 +53,7 @@ function loadInfo() {
 function loadPersonalClass() {
     $.ajax({
         type: 'GET',
-        url: '/course/getStu/',
+        url: '/course/getStuCourse/',
         data: {
             sid: localStorage.getItem('account')
         },

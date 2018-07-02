@@ -52,7 +52,7 @@ function loadShareCourse(dep) {
 function load() {
     $.ajax({
         type: 'GET',
-        url: '/course/getStu/',
+        url: '/course/getStuCourse/',
         // url:'172.19.184.117:8080/api/getUserShareCourses?sid=151099001',
         data: {
             sid: localStorage.getItem('account')

@@ -63,7 +63,7 @@ function addCourse() {
 function loadAllCourse() {
     $.ajax({
         type: 'GET',
-        url: '/course/getAll',
+        url: '/course/getAll/',
         data: {},
         dataType: 'text',
         success: function (result) {
